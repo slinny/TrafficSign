@@ -19,7 +19,7 @@ public class SignViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void onBind(final SignModel signModel) {
-        if(signModel.getName().equals("DISPLAYING_MESSAGE")){
+        if(signModel.getStatus().equals("DISPLAYING_MESSAGE")){
             textView.setText(signModel.getName());
             textView.setTextColor(Color.BLACK);
         }else{
