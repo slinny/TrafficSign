@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
+
+import com.example.android.trafficsign.model.SignModel;
 
 public class InfoActivity extends AppCompatActivity {
 
@@ -18,6 +21,7 @@ public class InfoActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         message = intent.getStringExtra("message");
+
         textView = findViewById(R.id.message_textview);
         textView.setText(message);
     }
