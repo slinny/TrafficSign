@@ -16,7 +16,7 @@ public class SignViewHolder extends RecyclerView.ViewHolder implements View.OnCl
 
     private TextView textView;
     private Context context;
-    private String message;
+    private StringBuilder message;
 
     public SignViewHolder(View view) {
         super(view);
@@ -26,18 +26,17 @@ public class SignViewHolder extends RecyclerView.ViewHolder implements View.OnCl
     }
 
     public void onBind(final SignModel signModel) {
-        if(signModel.getStatus().equals("DISPLAYING_MESSAGE")){
+        message = new StringBuilder();
+        if (signModel.getStatus().equals("DISPLAYING_MESSAGE")) {
             textView.setText(signModel.getName());
             textView.setTextColor(Color.BLACK);
-            message = "";
-            for(int i = 0; i < signModel.getDisplay().getPages().size(); i++){
-                for(int j = 0; j < signModel.getDisplay().getPages().get(i).getLines().size(); j++){
-                    message += (signModel.getDisplay().getPages().get(i).getLines().get(j) + " ");
+            for (int i = 0; i < signModel.getDisplay().getPages().size(); i++) {
+                for (int j = 0; j < signModel.getDisplay().getPages().get(i).getLines().size(); j++) {
+                    message.append(signModel.getDisplay().getPages().get(i).getLines().get(j) + " ");
                 }
             }
-            message.trim();
-        }else{
-            message = "No message!";
+        } else {
+            message.append("No message!");
             textView.setText(signModel.getName());
             textView.setTextColor(Color.GRAY);
         }
@@ -46,7 +45,7 @@ public class SignViewHolder extends RecyclerView.ViewHolder implements View.OnCl
     @Override
     public void onClick(View view) {
         Intent intent = new Intent(context, InfoActivity.class);
-        intent.putExtra("message", message);
+        intent.putExtra("message", message.toString().trim());
         context.startActivity(intent);
     }
 }
