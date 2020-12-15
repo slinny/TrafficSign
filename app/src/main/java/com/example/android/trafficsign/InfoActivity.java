@@ -18,7 +18,6 @@ public class InfoActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         message = intent.getStringExtra("message");
-
         textView = findViewById(R.id.message_textview);
         textView.setText(message);
     }

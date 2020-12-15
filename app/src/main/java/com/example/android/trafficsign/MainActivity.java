@@ -5,15 +5,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.android.trafficsign.model.SignModel;
-import com.example.android.trafficsign.networking.ApiService;
 import com.example.android.trafficsign.networking.RetrofitCall;
 import com.example.android.trafficsign.recyclerview.SignAdapter;
 
